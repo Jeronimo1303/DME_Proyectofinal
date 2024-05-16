@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 5px;
     /* Keep grid items at full opacity */
     opacity: 1;
 }
