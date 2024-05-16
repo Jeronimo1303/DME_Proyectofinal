@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from .models import WebScraping,Empresa
 from .procesarWebScraping import *
-import json 
+import json
 
 def index(request):
     return HttpResponse('<h2>Página de inicio<h2>')
@@ -12,7 +12,7 @@ def viewEmpresa(request, nameEmpresa):
     seguidoresComputrabajo, punGeneral = promediarComputrabajo()
     puntos = calificarMarcaEmpleadora(nameEmpresa)
     empresa = get_object_or_404(WebScraping, name=nameEmpresa)
-    
+
     if empresa.instagram != None or empresa.facebook != None or empresa.computrabajo != None:
         if empresa.instagram != None and empresa.facebook != None:
             instagram = json.loads(empresa.instagram)
@@ -21,7 +21,7 @@ def viewEmpresa(request, nameEmpresa):
                 computrabajo = json.loads(empresa.computrabajo)
                 acercaDe = empresa.acercaDe
                 return render(request, 'empresaC.html', {'name': nameEmpresa,
-                                                         'facebook': facebook, 
+                                                         'facebook': facebook,
                                                          'instagram': instagram,
                                                          'computrabajo': computrabajo,
                                                          'acercaDe': acercaDe,
@@ -34,7 +34,7 @@ def viewEmpresa(request, nameEmpresa):
                                                          'puntos': puntos})
             else:
                 return render(request, 'empresaP1.html', {'name': nameEmpresa,
-                                                          'facebook': facebook, 
+                                                          'facebook': facebook,
                                                           'instagram': instagram,
                                                           'meGusta': meGusta,
                                                           'seguidoresFacebook': seguidoresFacebook,
@@ -65,11 +65,8 @@ def cliente(request):
 
     if request.method == 'POST':
         viewEmpresa(request,"ARUS")
-
-
-
     return render(request,'cliente.html',context)
 
-        
-
+def nostros(request):
+    return render(request, 'nosotros.html')
 
