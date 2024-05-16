@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    
+    <header class="main-header fade" style="opacity: 1;">
+        <nav class="nav">
+            <img src="{% static '/Logos/DMElogo.png' %}" alt="LCM_Logo" class="logo" width="200" >
+            <a href="">
+                DME
+            </a>
+            <a href="">
+                Acerca de Nosotros
+            </a>
+        </nav>
+    </header>
+    
+    <form method="POST">{% csrf_token %}>
+        <label for="Empresa"></label>
+        <select name="Empresa" id="Empresa">
+            {% for p in Empresas %}
+                <option value="Empresa/{{p.name}}">{{p.name}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="button" value="Buscar" onclick="redirectToSelectedUrl()"  class="btn btn-success" style="font-size: 50px; padding: 1rem; transition: transform 0.3s ease;">
+    </form>
+    <script>
+        function redirectToSelectedUrl() {
+            var selectedUrl = document.getElementById("Empresa").value;
+            window.location.href = selectedUrl;
+        }
+    </script>
+
+
+    <p>Empresas:</p>
+
+    <main class="main-grid">
+        {% block content %}
+        <div style="display: grid; grid-template-columns: repeat(3, 3fr); gap: 15rem; width: 50%;">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/pactia.png' %}" alt="image 1">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/colsubsidio.png' %}" alt="image 2">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/claro.png' %}" alt="image 3">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/arus.png' %}" alt="image 4">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/choucair.png' %}" alt="image 5">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/colfondos.png' %}" alt="image 6">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/euro.png' %}" alt="image 7">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/grupo-argos.png' %}" alt="image 8">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/helados-bon.png' %}" alt="image 9">
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static '/logos/isimo.png' %}" alt="image 10">
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    </main>
+
+</body>

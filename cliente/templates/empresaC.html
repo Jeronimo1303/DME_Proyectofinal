@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .yellow-star{
+            color: #FFD700; 
+            vertical-align: middle;
+        }
+        .progress-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-bar {
+            margin-right: 10px; /* Espacio entre la barra de progreso y el número */
+        }
+
+        .small {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="text-center font-italic border-bottom pb-2">{{name}} <span class="material-icons yellow-star">star_half</span><span class="small">{{puntos}}</span></h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Acerca de {{name}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{acercaDe}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Computrabajo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if computrabajo.seguidores >= seguidoresComputrabajo %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{computrabajo.seguidores}} seguidores</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{computrabajo.seguidores}} seguidores</td>
+                                </tr>
+                            {% endif %}
+                            {% if computrabajo.punGeneral >= punGeneral %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{computrabajo.punGeneral}}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{computrabajo.punGeneral}}</td>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <td>{{computrabajo.evaluaciones}}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div style="margin-right: 10px;">5</div>
+                                        <div class="progress" style="width: 100%;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{computrabajo.porCinco}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{computrabajo.porCinco}}%;">
+                                                {{computrabajo.porCinco}}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div style="margin-right: 10px;">4</div>
+                                        <div class="progress" style="width: 100%;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{computrabajo.porCuatro}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{computrabajo.porCuatro}}%;">
+                                                {{computrabajo.porCuatro}}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div style="margin-right: 10px;">3</div>
+                                        <div class="progress" style="width: 100%;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{computrabajo.PorTres}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{computrabajo.PorTres}}%;">
+                                                {{computrabajo.porTres}}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div style="margin-right: 10px;">2</div>
+                                        <div class="progress" style="width: 100%;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{computrabajo.porDos}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{computrabajo.porDos}}%;">
+                                                {{computrabajo.porDos}}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <div class="d-flex align-items-center">
+                                        <div style="margin-right: 10px;">1</div>
+                                        <div class="progress" style="width: 100%;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{computrabajo.PorUna}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{computrabajo.PorUna}}%;">
+                                                {{computrabajo.porUna}}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>{{computrabajo.ambienteTrabajo}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{computrabajo.salarioPrestaciones}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{computrabajo.oportunidadesCarrera}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{computrabajo.directorGeneral}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Instagram</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if instagram.publicaciones >= publicaciones %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{instagram.publicaciones}} publicaciones</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{instagram.publicaciones}} publicaciones</td>
+                                </tr>
+                            {% endif %}
+                            {% if instagram.seguidores >= seguidoresInstagram %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{instagram.seguidores}} seguidores</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{instagram.seguidores}} seguidores</td>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <td>{{instagram.seguidos}} seguidos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Facebook</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if facebook.meGusta >= meGusta %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{facebook.meGusta}} me gusta</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{facebook.meGusta}} me gusta</td>
+                                </tr>
+                            {% endif %}
+                            {% if facebook.seguidores >= seguidoresFacebook %}
+                                <tr>
+                                    <td style="color: #2ECC71; font-weight: bold;">{{facebook.seguidores}} seguidores</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td style="color: #E74C3C; font-weight: bold;">{{facebook.seguidores}} seguidores</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

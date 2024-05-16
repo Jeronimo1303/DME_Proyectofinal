@@ -1,0 +1,158 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 10px;
+    /* Keep grid items at full opacity */
+    opacity: 1;
+}
+
+.grid-item {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Maintains a 1:1 aspect ratio for the images */
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the entire image is contained within the container */
+}
+.name {
+    font-size: 6px;
+    margin-bottom: 5px;
+}
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+}
+.image-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: make images circular */
+}
+
+.main-header {
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 1rem 1rem 1rem 0;
+    background-color: rgb(62, 118, 137); /* Set header background color with full opacity */
+    color: #fff;
+    opacity: 1; /* Ensure full opacity */
+}
+
+
+
+
+
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+    margin-left: 30px;
+}
+
+
+a{
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+    padding:1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: inset;
+    transition: .5s;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    margin-left: 30px;
+
+}
+
+.logo{
+    border: none;
+    border-radius: 10px;
+    border-style: inset;
+    width: 200;
+}
+
+.submit-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-content {
+    text-align: center;
+    opacity: 1; /* Ensure full opacity */
+}
+.main-grid {
+    justify-content: center;
+    margin-top: 15%;
+    display: flex;
+    opacity: 1; /* Ensure full opacity */
+}
+
+body {
+    /* Keep the background pattern opaque */
+    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.2), rgba(68, 76, 247, 0.2) 5px, rgba(31, 254, 158, 0.1) 5px, rgba(0, 0, 0, 0.2) 25px);
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.info-box {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-container:hover .info-box {
+    visibility: visible;
+    opacity: 1;
+}
+
+input :hover{
+    transform: scale(1.1);
+}
+
+h1{
+    /* Your existing styles for h1 */
+    font-size: 100px; /* Example font size */
+    transition: transform 0.3s ease; /* Adding a smooth transition effect */
+}
+h1 :hover{
+    transform: scale(1.2); /* Scale up the text by 20% when hovered */
+}
+
+select{
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0b0a22;
+    text-align: center;
+}
