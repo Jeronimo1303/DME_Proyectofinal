@@ -25,22 +25,27 @@
         </nav>
     </header>
     
-    <form method="POST">{% csrf_token %}>
-        <label for="Empresa"></label>
-        <select name="Empresa" id="Empresa">
-            {% for p in Empresas %}
-                <option value="Empresa/{{p.name}}">{{p.name}}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-        <input type="button" value="Buscar" onclick="redirectToSelectedUrl()"  class="btn btn-success" style="font-size: 50px; padding: 1rem; transition: transform 0.3s ease;">
-    </form>
-    <script>
-        function redirectToSelectedUrl() {
-            var selectedUrl = document.getElementById("Empresa").value;
-            window.location.href = selectedUrl;
-        }
-    </script>
+
+    <div class="main-content">
+        <div class="submit-btn" style="margin-top: 5%;">
+            <form method="POST" style="text-align: center;">{% csrf_token %}>
+                <label for="Empresa"></label>
+                <select name="Empresa" id="Empresa">
+                    {% for p in Empresas %}
+                        <option value="Empresa/{{p.name}}">{{p.name}}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="button" value="Buscar" onclick="redirectToSelectedUrl()"  class="btn btn-success" style="font-size: 50px; padding: 1rem; transition: transform 0.3s ease; ">
+            </form>
+            <script>
+                function redirectToSelectedUrl() {
+                    var selectedUrl = document.getElementById("Empresa").value;
+                    window.location.href = selectedUrl;
+                }
+            </script>
+        </div>
+    </div>
 
 
     <p>Empresas:</p>
