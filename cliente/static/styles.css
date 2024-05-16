@@ -47,11 +47,6 @@
     opacity: 1; /* Ensure full opacity */
 }
 
-
-
-
-
-
 .nav{
     display: flex;
     align-items: center;
@@ -97,6 +92,12 @@ a{
 .main-content {
     text-align: center;
     opacity: 1; /* Ensure full opacity */
+    background-color: rgb(62, 118, 137);
+    opacity: 0.7;
+    padding: 0.5rem;
+    margin-left: 5cm;
+    margin-right: 5cm;
+    margin-top: 2cm;
 }
 .main-grid {
     justify-content: center;
@@ -153,7 +154,7 @@ select{
     display: block;
     color: #ffffff;
     text-decoration: none;
-    background-color: #0b0a22;
+    background-color: rgb(62, 118, 137);
+    border-color: black;
     text-align: center;
-    
 }

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    
+
     <header class="main-header fade" style="opacity: 1;">
         <nav class="nav">
             <img src="{% static '/Logos/DMElogo.png' %}" alt="LCM_Logo" class="logo" width="200" >
@@ -24,11 +24,11 @@
             </a>
         </nav>
     </header>
-    
+
 
     <div class="main-content">
         <div class="submit-btn" style="margin-top: 5%;">
-            <form method="POST" style="text-align: center;">{% csrf_token %}>
+            <form method="POST" style="text-align: center;">
                 <label for="Empresa"></label>
                 <select name="Empresa" id="Empresa">
                     {% for p in Empresas %}
