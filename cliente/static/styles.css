@@ -107,7 +107,7 @@ a{
 
 body {
     /* Keep the background pattern opaque */
-    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.2), rgba(68, 76, 247, 0.2) 5px, rgba(31, 254, 158, 0.1) 5px, rgba(0, 0, 0, 0.2) 25px);
+    text-align: center;
 }
 
 .image-container {
@@ -155,4 +155,5 @@ select{
     text-decoration: none;
     background-color: #0b0a22;
     text-align: center;
+    
 }
