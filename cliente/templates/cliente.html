@@ -105,14 +105,28 @@
                 </div>
                 <p>Helados-bon</p>
             </div>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <img src="{% static '/logos/isimo.png' %}" alt="image 10">
-                </div>
-                <p>Isimo</p>
-            </div>
         </div>
     {% endblock %}
     </main>
 
+    <div class="btn empresa">
+        <button class="open-button" onclick="openForm()">Ver todas las empresas</button>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                {% for p in Empresas %}
+                    <p>{{p.name}}</p>
+                {% endfor %}
+            </form>
+          </div>
+          <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
+    </div>
 </body>
