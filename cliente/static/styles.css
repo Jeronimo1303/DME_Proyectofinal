@@ -4,6 +4,7 @@
     grid-gap: 5px;
     /* Keep grid items at full opacity */
     opacity: 1;
+    margin-top: -3cm;
 }
 
 .grid-item {
@@ -77,8 +78,7 @@ a{
 
 .logo{
     border: none;
-    border-radius: 10px;
-    border-style: inset;
+    border-radius: 0px;
     width: 200;
 }
 
