@@ -13,6 +13,13 @@ def viewEmpresa(request, nameEmpresa):
     puntos = calificarMarcaEmpleadora(nameEmpresa)
     empresa = get_object_or_404(WebScraping, name=nameEmpresa)
 
+    sig_empresa = WebScraping.objects.get(id = empresa.id+1)
+    ant_empresa = WebScraping.objects.get(id = empresa.id-1)
+
+
+
+
+
     if empresa.instagram != None or empresa.facebook != None or empresa.computrabajo != None:
         if empresa.instagram != None and empresa.facebook != None:
             instagram = json.loads(empresa.instagram)
@@ -31,7 +38,9 @@ def viewEmpresa(request, nameEmpresa):
                                                          'seguidoresInstagram': seguidoresInstagram,
                                                          'seguidoresComputrabajo': seguidoresComputrabajo,
                                                          'punGeneral': punGeneral,
-                                                         'puntos': puntos})
+                                                         'puntos': puntos,
+                                                         'sig_empresa' : sig_empresa,
+                                                         'ant_empresa' : ant_empresa})
             else:
                 return render(request, 'empresaP1.html', {'name': nameEmpresa,
                                                           'facebook': facebook,
@@ -64,7 +73,7 @@ def cliente(request):
     }
 
     if request.method == 'POST':
-        viewEmpresa(request,"ARUS")
+        pass
     return render(request,'cliente.html',context)
 
 def nostros(request):
